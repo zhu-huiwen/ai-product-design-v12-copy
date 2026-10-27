@@ -107,7 +107,7 @@
     .palette-preview__item.is-dragging { opacity:.45; cursor:grabbing; }
     .palette-preview__item.is-drop-target { border-color:#7d8da2; outline:2px dashed #aab7c9; outline-offset:2px; }
     .palette-preview__item[data-hover-tip] { cursor:grab; touch-action:none; user-select:none; }
-    .palette-preview__item[data-hover-tip]::after { display:none; position:absolute; z-index:2200; left:0; bottom:calc(100% + 6px); max-width:340px; width:max-content; padding:6px 9px; border-radius:5px; background:#303844; color:#fff; font-size:12px; line-height:18px; font-weight:400; white-space:normal; pointer-events:none; content:attr(data-hover-tip); box-shadow:0 3px 12px rgba(0,0,0,.14); }
+    .palette-preview__item[data-hover-tip]::after { display:none; position:absolute; z-index:2200; left:0; bottom:calc(100% + 6px); box-sizing:border-box; max-width:100%; width:max-content; padding:6px 9px; border-radius:5px; background:#303844; color:#fff; font-size:12px; line-height:18px; font-weight:400; white-space:normal; overflow-wrap:anywhere; pointer-events:none; content:attr(data-hover-tip); box-shadow:0 3px 12px rgba(0,0,0,.14); }
     .palette-preview__item[data-hover-tip]:hover::after,.palette-preview__item[data-hover-tip]:focus-visible::after { display:block; }
     .palette-preview.is-reordering .palette-preview__item::after,.color-role-flow__palette.is-reordering .palette-preview__item::after { display:none; }
     .palette-preview.is-reordering,.palette-preview.is-reordering *,.palette-preview__item[data-hover-tip]:active { cursor:grabbing; }
@@ -121,7 +121,7 @@
     .main-color-card__empty .el-button { flex:none; padding:7px 11px; border-radius:7px; font-size:12px; }
     @media (max-width:540px) { .main-color-card__header { align-items:flex-start; } .main-color-card__header .main-color-card__actions { flex-direction:column; align-items:flex-end; } .palette-preview { grid-template-columns:repeat(2,minmax(0,1fr)); } }
     .color-dialog { margin-top:1vh !important; }
-    .color-dialog .el-dialog__body { max-height:calc(92vh - 112px); overflow-y:auto; padding-top:8px; }
+    .color-dialog .el-dialog__body { max-height:calc(92vh - 112px); overflow-x:hidden; overflow-y:auto; padding-top:8px; }
     .color-dialog--main .el-tabs__header { margin:0 0 6px; }
     .color-dialog--main .el-tabs__nav-wrap::after,
     .color-dialog--main .el-tabs__active-bar { display:none; }
