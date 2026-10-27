@@ -253,13 +253,13 @@
     .pantone-filter-track--h { background:linear-gradient(to bottom,#f33,#ff0,#0f0,#0ff,#33f,#f0f,#f33); }
     .pantone-filter-track--s { background:linear-gradient(to bottom,#f33,#b37474,#858585); }
     .pantone-filter-track--l { background:linear-gradient(to bottom,#080808,#777,#fff); }
-    .pantone-filter-selection { position:absolute; left:-1px; right:-1px; box-sizing:border-box; border-top:1px solid #526c91; border-bottom:1px solid #526c91; pointer-events:auto; cursor:grab; min-height:2px; }
-    .pantone-filter-handle { position:absolute; z-index:2; width:28px; height:28px; padding:0; border:0; background:transparent; cursor:ns-resize; touch-action:none; }
-    .pantone-filter-handle::after { content:""; position:absolute; left:8px; top:8px; width:10px; height:10px; border:2px solid #657e9f; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(32,48,72,.18); }
-    .pantone-filter-handle:hover::after,.pantone-filter-handle:focus-visible::after { border-color:#315cf5; box-shadow:0 0 0 3px rgba(49,92,245,.13); }
+    .pantone-filter-selection { position:absolute; left:0; right:0; box-sizing:border-box; pointer-events:auto; cursor:grab; min-height:2px; }
+    .pantone-filter-handle { position:absolute; z-index:2; left:-4px; right:-4px; height:22px; padding:0; border:0; background:transparent; cursor:ns-resize; touch-action:none; }
+    .pantone-filter-handle::after { content:""; position:absolute; left:4px; right:4px; top:10px; height:2px; border-radius:1px; background:#fff; box-shadow:0 0 0 1px rgba(38,54,75,.45); }
+    .pantone-filter-handle:hover::after,.pantone-filter-handle:focus-visible::after { box-shadow:0 0 0 1px #526c91; }
     .pantone-filter-handle:focus-visible { outline:none; }
-    .pantone-filter-handle--top { top:-14px; left:-20px; }
-    .pantone-filter-handle--bottom { bottom:-14px; right:-20px; }
+    .pantone-filter-handle--top { top:-10px; }
+    .pantone-filter-handle--bottom { bottom:-10px; }
     .pantone-filter-bounds { display:flex; align-items:center; justify-content:center; gap:2px; margin:5px 0 2px; color:#8792a2; font-size:10px; white-space:nowrap; }
     .pantone-filter-bounds input { box-sizing:border-box; width:31px; height:22px; padding:1px; border:1px solid #d9e0ea; border-radius:5px; appearance:textfield; -moz-appearance:textfield; background:#fff; color:#3b4657; text-align:center; font-size:10px; }
     .pantone-filter-bounds input::-webkit-inner-spin-button,.pantone-filter-bounds input::-webkit-outer-spin-button { margin:0; -webkit-appearance:none; }
