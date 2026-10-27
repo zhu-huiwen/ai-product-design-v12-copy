@@ -181,6 +181,11 @@
     .color-role-flow__palette .palette-preview__item--main .palette-preview__role { background:#34465f; color:#fff; padding:2px 7px; }
     .color-role-flow__palette .palette-preview__item--main .palette-preview__code { font-size:15px; }
     .color-role-flow__palette .palette-preview__info { flex:1; min-width:80px; }
+    .color-role-flow__palette .palette-preview__item:not(.palette-preview__item--main) .palette-preview__info { display:grid; grid-template-rows:16px 18px 14px 24px; justify-items:start; align-items:center; gap:2px; }
+    .color-role-flow__palette .palette-preview__item:not(.palette-preview__item--main) .palette-preview__role { line-height:16px; }
+    .color-role-flow__palette .palette-preview__item:not(.palette-preview__item--main) .palette-preview__code { line-height:18px; }
+    .color-role-flow__palette .palette-preview__item:not(.palette-preview__item--main) .palette-preview__hex { min-height:14px; line-height:14px; }
+    .color-role-flow__palette .color-role-flow__promote { box-sizing:border-box; height:24px; line-height:16px; }
     .color-role-flow__palette .palette-preview__remove { opacity:1; transform:none; }
     .color-role-flow__promote { padding:3px 7px; border:1px solid #dce3ec; border-radius:5px; background:#fff; color:#536174; font-size:11px; cursor:pointer; }
     .color-role-flow__promote:hover,.color-role-flow__promote:focus-visible { border-color:#879ab4; color:#263447; background:#f2f5fa; }
@@ -918,7 +923,7 @@
         <div class="color-role-flow__palette" aria-label="已选产品配色">
           <div v-for="(item,index) in colorSelections" :key="item.hex" class="palette-preview__item" :class="{'palette-preview__item--main':index===0}" :style="{'--palette-main-color':item.hex}">
             <span class="palette-preview__swatch" :style="{background:item.hex}"></span>
-            <div class="palette-preview__info"><span class="palette-preview__role">{{ index===0 ? '产品主色' : '参考色' }}</span><strong class="palette-preview__code">{{ item.pantone || item.hex }}</strong><small v-if="item.pantone" class="palette-preview__hex">{{ item.hex }}</small><button v-if="index>0" type="button" class="color-role-flow__promote" :aria-label="'将 '+(item.pantone || item.hex)+' 设为主色'" @click="setPrimaryColor(index)">设为主色</button></div>
+            <div class="palette-preview__info"><span class="palette-preview__role">{{ index===0 ? '产品主色' : '参考色' }}</span><strong class="palette-preview__code">{{ item.pantone || item.hex }}</strong><small v-if="index>0 || item.pantone" class="palette-preview__hex">{{ item.pantone ? item.hex : '' }}</small><button v-if="index>0" type="button" class="color-role-flow__promote" :aria-label="'将 '+(item.pantone || item.hex)+' 设为主色'" @click="setPrimaryColor(index)">设为主色</button></div>
             <button type="button" class="palette-preview__remove" :aria-label="'移除'+(index===0?'主色 ':'参考色 ')+(item.pantone || item.hex)" @click="removeDraftColor(index)">×</button>
           </div>
           <div v-if="!colorSelections.length" class="color-role-flow__empty"><span aria-hidden="true"></span><div><strong>尚未选择产品主色</strong><small>点击上方“设为主色”开始组合配色，参考色可按需添加</small></div></div>
