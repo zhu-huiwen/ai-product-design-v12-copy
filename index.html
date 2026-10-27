@@ -175,7 +175,7 @@
     .color-role-flow__add.el-button { min-height:32px; padding:7px 12px; border-color:#d9e0e9; border-radius:16px; background:#f5f7fa; color:#526174; font-size:12px; font-weight:500; }
     .color-role-flow__add.el-button:hover,.color-role-flow__add.el-button:focus { border-color:#b8c4d3; background:#edf2f8; color:#34445a; }
     .color-role-flow__palette { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin-top:8px; }
-    .color-role-flow__palette .palette-preview__item { display:grid; grid-template-columns:40px minmax(0,1fr) auto; align-items:center; gap:8px; height:72px; min-width:0; box-sizing:border-box; padding:8px 9px; }
+    .color-role-flow__palette .palette-preview__item { display:grid; grid-template-columns:40px minmax(0,1fr); align-items:center; gap:8px; height:72px; min-width:0; box-sizing:border-box; padding:8px 9px; }
     .color-role-flow__palette .palette-preview__swatch { width:34px; height:34px; box-sizing:border-box; }
     .color-role-flow__palette .palette-preview__item--main { border:2px solid #657a98; background:#f2f5fa; padding-left:12px; }
     .color-role-flow__palette .palette-preview__item--main::before { width:4px; }
@@ -183,12 +183,14 @@
     .color-role-flow__palette .palette-preview__item--main .palette-preview__role { background:#34465f; color:#fff; padding:1px 6px; }
     .color-role-flow__palette .palette-preview__item--main .palette-preview__code { font-size:13px; }
     .color-role-flow__palette .palette-preview__info { min-width:0; gap:1px; padding-right:0; }
-    .color-role-flow__palette .palette-preview__role { line-height:14px; }
+    .color-role-flow__palette .palette-preview__item:not(.palette-preview__item--main) .palette-preview__info { align-self:start; padding-top:4px; }
+    .color-role-flow__palette .palette-preview__role { display:flex; align-items:center; gap:7px; line-height:16px; white-space:nowrap; }
     .color-role-flow__palette .palette-preview__code { line-height:16px; }
     .color-role-flow__palette .palette-preview__hex { line-height:12px; }
     .color-role-flow__palette .palette-preview__remove { opacity:1; transform:none; width:18px; height:18px; font-size:14px; }
-    .color-role-flow__promote { align-self:end; box-sizing:border-box; height:24px; margin-bottom:1px; padding:3px 6px; border:1px solid #dce3ec; border-radius:5px; background:#fff; color:#536174; font-size:11px; line-height:16px; white-space:nowrap; cursor:pointer; }
-    .color-role-flow__promote:hover,.color-role-flow__promote:focus-visible { border-color:#879ab4; color:#263447; background:#f2f5fa; }
+    .color-role-flow__promote { padding:0 0 0 7px; border:0; border-left:1px solid #dce3ec; background:transparent; color:#536b8b; font-size:11px; line-height:16px; white-space:nowrap; cursor:pointer; }
+    .color-role-flow__promote:hover { color:#263447; text-decoration:underline; text-underline-offset:3px; }
+    .color-role-flow__promote:focus-visible { outline:2px solid #657a98; outline-offset:3px; border-radius:2px; }
     .color-role-flow__empty { grid-column:1 / -1; display:flex; align-items:center; gap:12px; min-height:64px; box-sizing:border-box; padding:10px; border:1px dashed #cbd4e1; border-radius:10px; background:#f8fafd; }
     .color-role-flow__empty > span { width:42px; height:42px; flex:none; border:1px dashed #b8c4d3; border-radius:8px; }
     .color-role-flow__empty strong { display:block; color:#40536d; font-size:13px; }
@@ -923,7 +925,7 @@
         <div class="color-role-flow__palette" aria-label="已选产品配色">
           <div v-for="(item,index) in colorSelections" :key="item.hex" class="palette-preview__item" :class="{'palette-preview__item--main':index===0}" :style="{'--palette-main-color':item.hex}">
             <span class="palette-preview__swatch" :style="{background:item.hex}"></span>
-            <div class="palette-preview__info"><span class="palette-preview__role">{{ index===0 ? '产品主色' : '参考色' }}</span><strong class="palette-preview__code">{{ item.pantone || item.hex }}</strong><small v-if="item.pantone" class="palette-preview__hex">{{ item.hex }}</small></div><button v-if="index>0" type="button" class="color-role-flow__promote" :aria-label="'将 '+(item.pantone || item.hex)+' 设为主色'" @click="setPrimaryColor(index)">设为主色</button>
+            <div class="palette-preview__info"><span class="palette-preview__role">{{ index===0 ? '产品主色' : '参考色' }}<button v-if="index>0" type="button" class="color-role-flow__promote" :aria-label="'将 '+(item.pantone || item.hex)+' 设为主色'" @click="setPrimaryColor(index)">设为主色</button></span><strong class="palette-preview__code">{{ item.pantone || item.hex }}</strong><small v-if="item.pantone" class="palette-preview__hex">{{ item.hex }}</small></div>
             <button type="button" class="palette-preview__remove" :aria-label="'移除'+(index===0?'主色 ':'参考色 ')+(item.pantone || item.hex)" @click="removeDraftColor(index)">×</button>
           </div>
           <div v-if="!colorSelections.length" class="color-role-flow__empty"><span aria-hidden="true"></span><div><strong>尚未选择产品主色</strong><small>点击上方“设为主色”开始组合配色，参考色可按需添加</small></div></div>
