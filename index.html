@@ -271,7 +271,8 @@
     .pantone-swatch { display:block; min-width:0; padding:4px; border:1px solid #dfe5ee; border-radius:7px; background:#fff; text-align:left; cursor:pointer; }
     .pantone-swatch:hover,.pantone-swatch.is-selected { border-color:#315cf5; box-shadow:0 0 0 1px #315cf5; }
     .pantone-swatch__color { display:block; height:var(--pantone-card-height,42px); border:1px solid rgba(0,0,0,.07); border-radius:4px; }
-    .pantone-swatch__code { display:block; margin-top:3px; font-weight:400; font-size:clamp(6px,calc(var(--pantone-card-width,70px) * .125),11px); line-height:1.4; letter-spacing:-.15px; color:#30394a; white-space:nowrap; }
+    .pantone-swatch__code { display:block; margin-top:3px; font-weight:400; font-size:clamp(7px,calc(var(--pantone-card-width,70px) * .143),12px); line-height:1.4; letter-spacing:-.15px; color:#30394a; white-space:nowrap; }
+    .pantone-swatch__code small { font-size:.8em; font-weight:400; }
     .pantone-swatch__hex { display:none; }
     .pantone-page { display:flex; justify-content:center; padding:6px 4px; border-top:1px solid #e1e6ee; }
     .pantone-page .el-pagination.is-background .btn-prev,
@@ -901,7 +902,7 @@
             <section class="pantone-colors-pane" aria-label="潘通参考色卡">
               <div class="pantone-colors-head"><strong>颜色</strong><span class="pantone-count">{{ filteredPantoneColors.length }} / {{ pantoneColors.length }} 色</span></div>
               <div ref="pantoneColorsScroll" class="pantone-colors-scroll">
-                <div v-if="pagedPantoneColors.length" class="pantone-grid" :style="{'--pantone-card-width':pantoneCardWidth+'px','--pantone-card-height':Math.round(pantoneCardWidth*.6)+'px'}"><button v-for="item in pagedPantoneColors" :key="item.code" type="button" class="pantone-swatch" :class="{'is-selected':colorDraft.source==='第三方编号参考' && colorDraft.pantone===item.code}" :aria-label="'潘通编号 '+item.code+' TPG，颜色 '+item.hex" :title="item.code+' TPG · '+item.hex" @click="choosePantoneColor(item)"><span class="pantone-swatch__color" :style="{background:item.hex}"></span><span class="pantone-swatch__code">{{ item.code }} TPG</span><span class="pantone-swatch__hex">{{ item.hex }}</span></button></div>
+                <div v-if="pagedPantoneColors.length" class="pantone-grid" :style="{'--pantone-card-width':pantoneCardWidth+'px','--pantone-card-height':Math.round(pantoneCardWidth*.6)+'px'}"><button v-for="item in pagedPantoneColors" :key="item.code" type="button" class="pantone-swatch" :class="{'is-selected':colorDraft.source==='第三方编号参考' && colorDraft.pantone===item.code}" :aria-label="'潘通编号 '+item.code+' TPG，颜色 '+item.hex" :title="item.code+' TPG · '+item.hex" @click="choosePantoneColor(item)"><span class="pantone-swatch__color" :style="{background:item.hex}"></span><span class="pantone-swatch__code">{{ item.code }} <small>TPG</small></span><span class="pantone-swatch__hex">{{ item.hex }}</span></button></div>
                 <div v-else class="field-description" style="padding:28px 0;text-align:center">当前条件下没有匹配颜色，请调整筛选范围或搜索词。</div>
               </div>
               <div v-if="filteredPantoneColors.length>pantonePageSize" class="pantone-page"><el-pagination background layout="prev, pager, next" :current-page.sync="pantonePage" :page-size="pantonePageSize" :total="filteredPantoneColors.length" :pager-count="5" @current-change="scrollPantoneColorsTop"></el-pagination></div>
