@@ -320,51 +320,18 @@
     .drawer-section { margin-bottom: 18px; padding: 18px; border-radius: 8px; background: #fff; box-shadow: 0 1px 5px rgba(52,52,52,.06); }
     .drawer-section__title { margin: 0 0 16px; padding-left: 9px; border-left: 3px solid var(--sw-primary); color: #303133; font-size: 15px; font-weight: 600; }
     .drawer-footer { position: sticky; bottom: -20px; display: flex; margin: 20px -20px -20px; padding: 12px 20px; justify-content: flex-end; gap: 10px; border-top: 1px solid #ECEEF3; background: #fff; }
-    .refine-workspace { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(290px,.85fr); grid-template-rows:minmax(520px,1fr) auto; gap:14px; min-height:calc(100vh - 140px); }
-    .refine-artboard { display:flex; min-height:0; flex-direction:column; overflow:hidden; border:1px solid #e6e9ef; border-radius:14px; background:#fff; }
-    .refine-tool-row { display:flex; min-height:56px; padding:8px 14px; align-items:center; justify-content:space-between; gap:12px; border-bottom:1px solid #e9edf3; background:#fff; }
-    .refine-tool-actions { display:flex; align-items:center; gap:8px; }
-    .refine-tool-icon { display:grid; width:34px; height:34px; padding:0; place-items:center; border:0; border-radius:8px; color:#4b5563; background:transparent; cursor:pointer; font-size:19px; }
-    .refine-tool-icon:hover:not(:disabled) { background:#f1f3f6; }
-    .refine-tool-icon.is-active { color:#fff; background:#32353b; }
-    .refine-tool-icon:disabled { color:#b9c0c9; cursor:not-allowed; }
-    .refine-mode-switch { display:flex; padding:3px; gap:2px; border:1px solid #e4e8ee; border-radius:9px; background:#f3f5f8; }
-    .refine-mode-switch button { min-width:54px; padding:6px 10px; border:0; border-radius:6px; color:#7d8795; background:transparent; cursor:pointer; font-size:13px; line-height:18px; }
-    .refine-mode-switch button.is-active { color:#263247; background:#fff; box-shadow:0 1px 4px rgba(38,50,71,.12); font-weight:600; }
-    .refine-mode-switch button:disabled { cursor:not-allowed; opacity:.6; }
-    .refine-tool-hint { margin-right:4px; color:#929baa; font-size:12px; white-space:nowrap; }
-    .refine-brush-size { display:flex; align-items:center; gap:7px; margin:0 4px; white-space:nowrap; }
-    .refine-brush-size input { width:112px; accent-color:#777f89; cursor:pointer; }
-    .refine-brush-size__dot { width:10px; height:10px; border:1px solid #6e7783; border-radius:50%; }
-    .refine-brush-size__dot--large { width:20px; height:20px; border-width:2px; }
+    .refine-workspace { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(290px,.85fr); grid-template-rows:minmax(0,1fr) auto; gap:14px; height:calc(100vh - 166px); min-height:490px; }
     .refine-canvas { position:relative; display:flex; min-height:0; align-items:center; justify-content:center; overflow:hidden; border:1px solid #e6e9ef; border-radius:14px; background:#f5f6f8; cursor:crosshair; user-select:none; }
-    .refine-artboard .refine-canvas { flex:1; border:0; border-radius:0; cursor:crosshair; touch-action:none; }
-    .refine-canvas.is-brush { cursor:crosshair; }
-    .refine-image-stage { position:relative; flex:none; overflow:hidden; background:#fff; touch-action:none; transform-origin:center center; }
-    .refine-image-stage img { display:block; width:100%; height:100%; object-fit:fill; pointer-events:none; }
-    .refine-mask-canvas { position:absolute; inset:0; z-index:2; width:100%; height:100%; pointer-events:none; }
-    .refine-brush-marker { position:absolute; z-index:3; display:grid; width:23px; height:23px; place-items:center; transform:translate(-50%,-50%); border:2px solid #fff; border-radius:50%; color:#fff; background:#7468dd; box-shadow:0 2px 7px rgba(45,38,104,.25); font-size:11px; font-weight:600; pointer-events:none; }
-    .refine-annotation-box { position:absolute; z-index:2; border:2px solid #ed931f; border-radius:4px; background:rgba(237,147,31,.1); pointer-events:none; }
-    .refine-annotation-box.is-draft { border-style:dashed; }
-    .refine-annotation-box span { position:absolute; top:-23px; left:-2px; max-width:100%; padding:2px 7px; overflow:hidden; border-radius:5px 5px 0 0; color:white; background:#ed931f; font-size:11px; line-height:18px; text-overflow:ellipsis; white-space:nowrap; }
-    .refine-canvas-footer { display:flex; min-height:56px; padding:8px 14px; align-items:center; justify-content:space-between; gap:14px; border-top:1px solid #e9edf3; background:#fff; }
-    .refine-zoom, .refine-canvas-actions { display:flex; align-items:center; gap:8px; }
-    .refine-zoom button { width:28px; height:28px; padding:0; border:0; border-radius:6px; color:#394353; background:transparent; cursor:pointer; font-size:22px; line-height:1; }
-    .refine-zoom button:hover:not(:disabled) { background:#f1f3f6; }
-    .refine-zoom button:disabled { color:#b9c0c9; cursor:not-allowed; }
-    .refine-zoom span { min-width:44px; color:#303d50; font-size:13px; text-align:center; font-variant-numeric:tabular-nums; }
-    .refine-canvas-actions .el-button { margin:0; border-radius:8px; }
+    .refine-canvas img { display:block; width:100%; max-height:100%; object-fit:contain; pointer-events:none; }
+    .refine-annotation-box { position:absolute; z-index:2; border:2px solid #2563eb; border-radius:4px; background:rgba(37,99,235,.1); pointer-events:none; }
+    .refine-annotation-box span { position:absolute; top:-22px; left:-2px; min-width:22px; padding:2px 6px; border-radius:4px 4px 0 0; color:white; background:#2563eb; font-size:11px; line-height:18px; }
     .refine-inspector { display:flex; min-height:0; flex-direction:column; gap:12px; }
     .refine-panel { overflow:hidden; border:1px solid #e6e9ef; border-radius:12px; background:#fff; }
     .refine-panel__head { display:flex; min-height:42px; padding:0 14px; align-items:center; justify-content:space-between; border-bottom:1px solid #edf0f4; color:#243047; font-size:13px; font-weight:600; }
     .refine-panel__head small { color:#8993a3; font-weight:400; }
-    .refine-panel__head--version { min-height:62px; flex-direction:column; align-items:stretch; justify-content:center; gap:6px; }
-    .refine-panel__subhead { display:flex; align-items:center; justify-content:space-between; gap:12px; color:#7b8492; font-size:11px; font-weight:400; }
-    .refine-panel__path { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
     .refine-version-list { min-height:138px; max-height:230px; padding:8px; overflow-y:auto; }
     .refine-version { display:flex; width:100%; min-height:38px; padding:7px 10px; align-items:center; gap:9px; border:0; border-radius:7px; color:#536174; background:transparent; text-align:left; cursor:pointer; }
     .refine-version:hover, .refine-version.is-active { color:#243047; background:#f0f4fa; }
-    .refine-version__chevron { width:11px; flex:none; color:#59667a; font-size:12px; text-align:center; }
     .refine-version__dot { width:7px; height:7px; flex:none; border-radius:50%; background:#3478eb; }
     .refine-version__label { flex:1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
     .refine-version__tag { padding:2px 7px; border-radius:10px; color:#637086; background:#e8edf4; font-size:11px; }
@@ -373,19 +340,6 @@
     .refine-note-empty { padding:15px 8px; border:1px dashed #e2e6ed; border-radius:8px; color:#9ca6b4; font-size:12px; text-align:center; }
     .refine-note-row { display:flex; align-items:center; gap:7px; margin-bottom:7px; }
     .refine-note-index { display:grid; width:22px; height:22px; flex:none; place-items:center; border-radius:6px; color:#fff; background:#2869da; font-size:11px; }
-    .refine-note-index.is-brush { background:#7468dd; }
-    .refine-note-kind { display:inline-flex; min-width:28px; flex:none; color:#8190a2; font-size:11px; }
-    .refine-note-card { margin-bottom:9px; padding:10px; border:1px solid #e6e9ef; border-radius:9px; background:#fff; }
-    .refine-note-card__head { display:flex; margin-bottom:8px; align-items:center; gap:7px; }
-    .refine-note-card__name { flex:1; overflow:hidden; color:#303d50; font-size:12px; font-weight:600; text-overflow:ellipsis; white-space:nowrap; }
-    .refine-note-card__name-input { flex:1; width:0; min-width:0; padding:3px 5px; border:1px solid transparent; border-radius:5px; color:#303d50; background:transparent; font-family:inherit; font-size:12px; font-weight:600; text-overflow:ellipsis; }
-    .refine-note-card__name-input:hover, .refine-note-card__name-input:focus { border-color:#d4d9e4; outline:none; background:#f8f9fc; }
-    .refine-note-card__action { padding:2px 4px; border:0; color:#8993a3; background:transparent; cursor:pointer; font-size:12px; }
-    .refine-note-card__action:hover { color:#303d50; }
-    .refine-name-dialog { width:min(420px,calc(100vw - 36px)); border-radius:14px; }
-    .refine-name-dialog .el-message-box__title { font-size:17px; font-weight:600; }
-    .refine-name-dialog .el-input__inner { height:42px; border-radius:8px; }
-    .refine-name-dialog .el-button { border-radius:8px; }
     .refine-composer { grid-column:1/-1; padding:14px; border:1px solid #e6e9ef; border-radius:12px; background:#fff; }
     .refine-composer__hint { margin-bottom:8px; color:#8993a3; font-size:12px; line-height:1.5; }
     .refine-composer .el-textarea__inner { min-height:80px; padding:4px 0; border:0; box-shadow:none; resize:vertical; }
@@ -398,7 +352,7 @@
     .refine-advanced-row strong { width:72px; flex:none; font-size:13px; }
     .refine-chip { display:inline-flex; padding:5px 10px; border:1px solid #dce3ec; border-radius:16px; color:#697586; background:#fff; font-size:12px; cursor:pointer; }
     .refine-chip.is-selected { border-color:#b9d0fb; color:#1f57ac; background:#eef4ff; }
-    @media (max-width:900px) { .refine-workspace { grid-template-columns:1fr; grid-template-rows:auto; height:auto; min-height:0; } .refine-canvas { min-height:320px; } .refine-composer { grid-column:1; } }
+    @media (max-width:900px) { .refine-workspace { grid-template-columns:1fr; grid-template-rows:auto; height:auto; min-height:0; } .refine-canvas { min-height:320px; } .refine-canvas img { max-height:460px; } .refine-composer { grid-column:1; } }
     .model-lock { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid #DDE2EC; border-radius: 4px; color: #606266; background: #F7F8FB; font-size: 12px; }
     .metric-table td { padding: 8px 10px; border-bottom: 1px solid #ECEEF3; line-height: 20px; }
     .metric-table { width: 100%; border-collapse: collapse; }
@@ -997,22 +951,18 @@
       <div class="drawer-footer"><el-button @click="detailDrawerVisible=false">关闭</el-button><el-button type="primary" :disabled="isViewer" @click="detailDrawerVisible=false;openRefine(selectedCreative)">进入精修</el-button></div>
     </el-drawer>
 
-    <el-drawer :title="'精修 · '+(refineCurrentVersion.code||selectedCreative.code)" :visible.sync="refineDrawerVisible" size="86%" direction="rtl" append-to-body data-drawer-id="single-image-refine" data-user-task="单图精修生成新版本">
+    <el-drawer :title="'精修 · '+selectedCreative.code" :visible.sync="refineDrawerVisible" size="86%" direction="rtl" append-to-body data-drawer-id="single-image-refine" data-user-task="单图精修生成新版本">
       <div class="refine-workspace" data-flow-step="action">
-        <div class="refine-artboard">
-          <div class="refine-tool-row" role="toolbar" :aria-label="refine.mode==='brush'?'涂抹操作':'框选操作'">
-            <div class="refine-mode-switch" role="group" aria-label="图片标注方式"><button type="button" :class="{'is-active':refine.mode==='brush'}" :aria-pressed="refine.mode==='brush'" :disabled="refine.loading" @click="setRefineMode('brush')">涂抹</button><button type="button" :class="{'is-active':refine.mode==='box'}" :aria-pressed="refine.mode==='box'" :disabled="refine.loading" @click="setRefineMode('box')">框选</button></div>
-            <div class="refine-tool-actions" v-if="refine.mode==='brush'"><button type="button" class="refine-tool-icon" title="撤销上一笔涂抹" aria-label="撤销上一笔涂抹" :disabled="!refine.draftStrokes.length" @click="undoRefineStroke"><i class="el-icon-back"></i></button><button type="button" class="refine-tool-icon" title="清空本次涂抹" aria-label="清空本次涂抹" :disabled="!refine.draftStrokes.length" @click="clearRefineStrokes"><i class="el-icon-delete"></i></button><button type="button" class="refine-tool-icon" :class="{'is-active':refine.brushTool==='erase'}" title="橡皮擦" aria-label="橡皮擦" :aria-pressed="refine.brushTool==='erase'" @click="refine.brushTool='erase'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 15 9-10a2 2 0 0 1 3 0l6 6a2 2 0 0 1 0 3l-6 7H8l-5-5a1 1 0 0 1 0-1Z"></path><path d="m9 9 8 8M14 21h8"></path></svg></button><label class="refine-brush-size" title="笔刷大小"><span class="refine-brush-size__dot"></span><input type="range" min="8" max="80" step="1" v-model.number="refine.brushSize" aria-label="调整涂抹笔刷大小"><span class="refine-brush-size__dot refine-brush-size__dot--large"></span></label><button type="button" class="refine-tool-icon" :class="{'is-active':refine.brushTool==='paint'}" title="涂抹笔" aria-label="涂抹笔" :aria-pressed="refine.brushTool==='paint'" @click="refine.brushTool='paint'"><i class="el-icon-edit-outline"></i></button></div>
-            <div class="refine-tool-actions" v-else><span class="refine-tool-hint">拖拽图片框选区域</span><button type="button" class="refine-tool-icon" title="撤销上一个框选" aria-label="撤销上一个框选" :disabled="!refineBoxCount" @click="undoRefineBox"><i class="el-icon-back"></i></button><button type="button" class="refine-tool-icon" title="清空所有框选" aria-label="清空所有框选" :disabled="!refineBoxCount" @click="clearRefineBoxes"><i class="el-icon-delete"></i></button></div>
-          </div>
-          <div ref="refineCanvas" class="refine-canvas" :class="{'is-brush':refine.mode==='brush'}"><div ref="refineImageStage" class="refine-image-stage" :style="{width:refine.stageWidth+'px',height:refine.stageHeight+'px',transform:'scale('+refine.zoom/100+')'}" @pointerdown="startRefineAnnotation" @pointermove="moveRefineAnnotation" @pointerup="finishRefineAnnotation" @pointercancel="finishRefineAnnotation" @lostpointercapture="finishRefineAnnotation" :title="refine.mode==='brush'?'在图片上涂抹要修改的部位':'在图片上拖拽框选要修改的区域'"><img ref="refineImage" :src="refineCurrentVersion.image || selectedCreative.image" :alt="selectedCreative.name" :style="{filter:refineCurrentVersion.filter||'none'}" @load="syncRefineStage"><canvas v-show="refine.mode==='brush'" ref="refineMaskCanvas" class="refine-mask-canvas" aria-hidden="true"></canvas><template v-if="refine.mode==='box'"><div v-for="(note,index) in refineActiveAnnotations" :key="note.id" class="refine-annotation-box" :style="annotationStyle(note)"><span>{{ note.name||'区域 '+(index+1) }}</span></div><div v-if="refine.draftRect" class="refine-annotation-box is-draft" :style="annotationStyle(refine.draftRect)"></div></template><template v-else><span v-for="(note,index) in refineActiveAnnotations" :key="note.id" class="refine-brush-marker" :style="brushMarkerStyle(note)" :title="note.name||'涂抹区域 '+(index+1)">{{ index+1 }}</span></template></div></div>
-          <div class="refine-canvas-footer"><div class="refine-zoom"><button type="button" title="缩小" aria-label="缩小图片" :disabled="refine.zoom<=50" @click="changeRefineZoom(-25)">−</button><span>{{ refine.zoom }}%</span><button type="button" title="放大" aria-label="放大图片" :disabled="refine.zoom>=200" @click="changeRefineZoom(25)">+</button></div><div class="refine-canvas-actions" v-if="refine.mode==='brush'"><el-button size="mini" :disabled="!refine.draftStrokes.length||refine.brushNaming" title="取消本次涂抹" @click="clearRefineStrokes">取消</el-button><el-button size="mini" type="primary" :disabled="!refine.draftStrokes.length||refine.brushNaming" @click="finishBrushAnnotation">保存</el-button></div></div>
+        <div class="refine-canvas" @mousedown="startRefineAnnotation" @mousemove="moveRefineAnnotation" @mouseup="finishRefineAnnotation" @mouseleave="finishRefineAnnotation" title="在图片上拖拽框选需要修改的区域">
+          <img :src="refineCurrentVersion.image || selectedCreative.image" :alt="selectedCreative.name" :style="{filter:refineCurrentVersion.filter||'none'}">
+          <div v-for="(note,index) in refine.annotations" :key="note.id" class="refine-annotation-box" :style="annotationStyle(note)"><span>{{ index+1 }}</span></div>
+          <div v-if="refine.draftRect" class="refine-annotation-box" :style="annotationStyle(refine.draftRect)"></div>
         </div>
         <aside class="refine-inspector">
-          <div class="refine-panel"><div class="refine-panel__head refine-panel__head--version"><span>版本历史</span><div class="refine-panel__subhead"><span class="refine-panel__path">{{ refineVersionPath }}</span><small>深度 {{ refineCurrentDepth }} / 4</small></div></div><div class="refine-version-list"><button v-for="entry in refineVersionRows" :key="entry.version.id" type="button" class="refine-version" :class="{'is-active':refine.activeVersionIndex===entry.index}" :style="{paddingLeft:(10+(entry.depth-1)*18)+'px'}" :disabled="refine.loading" @click="selectRefineVersion(entry.index)"><span class="refine-version__chevron">{{ entry.hasChildren?'▾':'' }}</span><span class="refine-version__dot"></span><span class="refine-version__label">{{ entry.version.code }} <small>{{ refineDepthLabel(entry.depth) }}</small></span><span v-if="entry.version.id===refine.mainVersionId" class="refine-version__tag is-primary">主版本</span></button></div></div>
-          <div class="refine-panel" style="flex:1"><div class="refine-panel__head"><span>{{ refine.mode==='brush'?'涂抹区域':'框选区域' }}（{{ refineActiveAnnotations.length }} 个）</span><small>仅用于本次{{ refine.mode==='brush'?'涂抹':'框选' }}精修</small></div><div class="refine-note-list"><div v-if="!refineActiveAnnotations.length" class="refine-note-empty">{{ refine.mode==='brush'?'在图片上涂抹需要修改的部位，保存后填写修改要求':'在图片上拖拽框选需要修改的部位，再填写修改要求' }}</div><div v-for="(note,index) in refineActiveAnnotations" :key="note.id" class="refine-note-card"><div class="refine-note-card__head"><span class="refine-note-index" :class="{'is-brush':refine.mode==='brush'}">{{ index+1 }}</span><template v-if="refine.mode==='brush'"><input v-model="note.name" class="refine-note-card__name-input" maxlength="24" :aria-label="'涂抹区域 '+(index+1)+' 的名称'" :placeholder="'涂抹区域 '+(index+1)" @blur="normalizeRefineBrushName(note,index)"></template><template v-else><span class="refine-note-card__name" :title="note.name||'区域 '+(index+1)">{{ note.name||'区域 '+(index+1) }}</span><button type="button" class="refine-note-card__action" :aria-label="'修改标注名称 '+(note.name||'区域 '+(index+1))" @click="renameRefineBox(note)"><i class="el-icon-edit"></i></button></template><button type="button" class="refine-note-card__action" :aria-label="'删除标注 '+(note.name||'区域 '+(index+1))" @click="removeRefineAnnotation(index)"><i class="el-icon-close"></i></button></div><el-input v-model="note.text" size="mini" :placeholder="'写下「'+(note.name||(refine.mode==='brush'?'涂抹区域 ':'区域 ')+(index+1))+'」的修改要求'"></el-input></div></div></div>
+          <div class="refine-panel"><div class="refine-panel__head"><span>版本历史</span><small>深度 {{ refine.versions.length }} / 4</small></div><div class="refine-version-list"><button v-for="(version,index) in refine.versions" :key="version.id" type="button" class="refine-version" :class="{'is-active':refine.activeVersionIndex===index}" @click="selectRefineVersion(index)"><span class="refine-version__dot"></span><span class="refine-version__label">{{ version.code }} <small>{{ index===0?'一级':'第 '+(index+1)+' 版' }}</small></span><span class="refine-version__tag" :class="{'is-primary':index===0}">{{ index===0?'主版本':'精修版' }}</span></button></div></div>
+          <div class="refine-panel" style="flex:1"><div class="refine-panel__head"><span>图片标注（{{ refine.annotations.length }} 个）</span><small>在主图上拖拽框选</small></div><div class="refine-note-list"><div v-if="!refine.annotations.length" class="refine-note-empty">框选想调整的区域，再写下具体修改要求</div><div v-for="(note,index) in refine.annotations" :key="note.id" class="refine-note-row"><span class="refine-note-index">{{ index+1 }}</span><el-input v-model="note.text" size="mini" :placeholder="'标注 '+(index+1)+'：希望怎样修改？'"></el-input><el-button type="text" icon="el-icon-close" aria-label="删除标注" @click="removeRefineAnnotation(index)"></el-button></div></div></div>
         </aside>
-        <div class="refine-composer"><div class="refine-composer__hint">{{ refine.mode==='brush'?'涂抹':'框选' }}区域的修改要求写在右侧；这里可补充整张图需要保留或调整的内容。本次只使用当前方式的标注。</div><el-input v-model="refineActivePrompt" type="textarea" :rows="3" maxlength="500" show-word-limit :placeholder="refine.mode==='brush'?'例如：保留原有版型，涂抹区域改为更柔和的配色……':'例如：保留原有版型，框选区域调整为更简洁的图案……'" :data-field-description="'修改内容：最多 500 字；'+(refine.mode==='brush'?'涂抹':'框选')+'区域需填写对应的修改要求。'"></el-input><div class="refine-composer__foot"><div class="refine-composer__tools"><input ref="refineFileInput" type="file" accept="image/*" multiple style="display:none" @change="addRefineReferences"><el-button icon="el-icon-plus" size="mini" title="添加参考图片" @click="$refs.refineFileInput.click()"></el-button><span v-for="(file,index) in refine.references" :key="file.id" class="refine-reference"><img :src="file.url" :alt="file.name"><button type="button" :aria-label="'移除'+file.name" @click="removeRefineReference(index)">×</button></span><el-button size="mini" @click="refineAdvancedVisible=true">高级参数</el-button></div><el-button type="primary" :loading="refine.loading" :disabled="!canGenerateRefine" @click="generateRefinedVersion">{{ refine.loading ? '生成中…' : '生成新版本' }}</el-button></div></div>
+        <div class="refine-composer"><div class="refine-composer__hint">描述要保留的主体和想调整的细节。局部修改可先在图上框选并填写标注。</div><el-input v-model="refine.prompt" type="textarea" :rows="3" maxlength="500" show-word-limit placeholder="例如：保留原有版型，把局部提花改得更细密，配色更柔和……" data-field-description="修改内容：最多 500 字；填写文字或图片标注后才能生成。"></el-input><div class="refine-composer__foot"><div class="refine-composer__tools"><input ref="refineFileInput" type="file" accept="image/*" multiple style="display:none" @change="addRefineReferences"><el-button icon="el-icon-plus" size="mini" title="添加参考图片" @click="$refs.refineFileInput.click()"></el-button><span v-for="(file,index) in refine.references" :key="file.id" class="refine-reference"><img :src="file.url" :alt="file.name"><button type="button" :aria-label="'移除'+file.name" @click="removeRefineReference(index)">×</button></span><el-button size="mini" @click="refineAdvancedVisible=true">高级参数</el-button></div><el-button type="primary" :loading="refine.loading" :disabled="!canGenerateRefine" @click="generateRefinedVersion">{{ refine.loading ? '生成中…' : '生成新版本' }}</el-button></div></div>
       </div>
       <details style="margin-top:12px;color:#8993a3;font-size:12px"><summary>演示状态</summary><el-radio-group v-model="refine.scenario" size="mini"><el-radio label="success">成功</el-radio><el-radio label="failed">失败</el-radio><el-radio label="processing">处理中</el-radio></el-radio-group></details>
       <el-alert v-if="refine.message" style="margin-top:12px" :title="refine.message" :type="refine.messageType" :closable="false" show-icon data-flow-step="result"></el-alert>
@@ -1060,7 +1010,7 @@ window.PANTONE_FHI_COLORS=[["11-0103","#F3ECE0"],["11-0602","#F2F0EB"],["11-0601
           generation: {formats:['PNG'],ratio:'3:4',resolution:'4K'}, creativeKeyword:'', creativeStatus:'全部', creativePage:1, creativePageSize:6,
           creatives: [], selectedCreative:{name:'',code:'',desc:'',tags:[],image:'',final:false},
           generationMainColor:{hex:'',pantone:'',source:''},
-          refine: {scenario:'success',loading:false,message:'',messageType:'info',versions:[],activeVersionIndex:-1,mainVersionId:'',modeDrafts:{brush:{annotations:[],prompt:''},box:{annotations:[],prompt:''}},draftsByVersion:{},mode:'brush',brushTool:'paint',brushSize:26,zoom:100,draftStrokes:[],activeStroke:null,drawing:false,stageWidth:480,stageHeight:360,draftRect:null,dragStart:null,boxNaming:false,brushNaming:false,references:[],cuff:'无',pattern:'无图案',customCuff:'',customPattern:''},
+          refine: {prompt:'',scenario:'success',loading:false,message:'',messageType:'info',versions:[],activeVersionIndex:0,annotations:[],draftRect:null,dragStart:null,references:[],cuff:'无',pattern:'无图案',customCuff:'',customPattern:''},
           historyFilters:{keyword:'',category:'',status:'全部'}, historyPage:1, historyPageSize:5, historyMessage:'', selectedHistory:{},
           fieldRows:[
             {name:'品类选择',type:'单选',scope:'全部品类',required:true,status:'启用'},
@@ -1080,9 +1030,6 @@ window.PANTONE_FHI_COLORS=[["11-0103","#F3ECE0"],["11-0602","#F2F0EB"],["11-0601
       },
       computed: {
         isViewer: function(){ return this.roleMode==='viewer'; },
-        refineActiveAnnotations: function(){ return this.refine.modeDrafts[this.refine.mode].annotations; },
-        refineActivePrompt: {get:function(){return this.refine.modeDrafts[this.refine.mode].prompt;},set:function(value){this.refine.modeDrafts[this.refine.mode].prompt=value;}},
-        refineBoxCount: function(){ return this.refine.modeDrafts.box.annotations.length; },
         hasActivePantoneFilters: function(){ return Boolean(this.pantoneQuery)||this.pantoneFilterDefs.some(function(def){return this.pantoneFilters[def.key].active;}.bind(this)); },
         filteredPantoneColors: function(){ var query=(this.pantoneQuery||'').trim().toUpperCase().replace(/^#/,''),filters=this.pantoneFilters;return this.pantoneColors.filter(function(item){if(query&&item.code.indexOf(query)===-1&&item.hex.slice(1).indexOf(query)===-1)return false;return ['h','s','l'].every(function(key){var range=filters[key],value=item.hsl[key];return !range.active||value>=range.from&&value<=range.to;});}); },
         pagedPantoneColors: function(){ var start=(this.pantonePage-1)*this.pantonePageSize;return this.filteredPantoneColors.slice(start,start+this.pantonePageSize); },
@@ -1106,10 +1053,7 @@ window.PANTONE_FHI_COLORS=[["11-0103","#F3ECE0"],["11-0602","#F2F0EB"],["11-0601
         filteredCreatives: function(){ var self=this; return this.creatives.filter(function(item){var byKeyword=!self.creativeKeyword||item.name.indexOf(self.creativeKeyword.trim())!==-1;var byStatus=self.creativeStatus==='已移除'?item.removed:(self.creativeStatus==='定稿'?item.final&&!item.removed:!item.removed);return byKeyword&&byStatus;}); },
         pagedCreatives: function(){ return this.filteredCreatives.slice((this.creativePage-1)*this.creativePageSize,this.creativePage*this.creativePageSize); },
         refineCurrentVersion: function(){ return this.refine.versions[this.refine.activeVersionIndex]||{}; },
-        refineCurrentDepth: function(){ return this.refineCurrentVersion.depth||1; },
-        refineVersionRows: function(){ var versions=this.refine.versions,rows=[];function visit(parentId,depth){versions.forEach(function(version,index){if((version.parentId||null)!==parentId)return;rows.push({version:version,index:index,depth:depth,hasChildren:versions.some(function(child){return child.parentId===version.id;})});visit(version.id,depth+1);});}visit(null,1);return rows; },
-        refineVersionPath: function(){ var versions=this.refine.versions,current=this.refineCurrentVersion,parts=[],seen={};while(current&&current.id&&!seen[current.id]){seen[current.id]=true;parts.unshift(current.code);current=versions.find(function(version){return version.id===current.parentId;});}return parts.join(' › '); },
-        canGenerateRefine: function(){ var notes=this.refineActiveAnnotations;return !this.refine.loading&&this.refineCurrentDepth<4&&(this.refine.mode!=='brush'||!this.refine.draftStrokes.length)&&notes.every(function(note){return note.text.trim();})&&Boolean(this.refineActivePrompt.trim()||notes.length); },
+        canGenerateRefine: function(){ return !this.refine.loading&&this.refine.versions.length<4&&Boolean(this.refine.prompt.trim()||this.refine.annotations.some(function(note){return note.text.trim();})); },
         filteredHistory: function(){ var self=this; return this.historyRows.filter(function(row){var key=self.historyFilters.keyword.trim();var byKey=!key||[row.name,row.creator,row.category].join(' ').indexOf(key)!==-1;var byCategory=!self.historyFilters.category||row.category===self.historyFilters.category;var byStatus=self.historyFilters.status==='全部'||row.status===self.historyFilters.status;return byKey&&byCategory&&byStatus;}); },
         pagedHistory: function(){ return this.filteredHistory.slice((this.historyPage-1)*this.historyPageSize,this.historyPage*this.historyPageSize); }
       },
@@ -1120,7 +1064,7 @@ window.PANTONE_FHI_COLORS=[["11-0103","#F3ECE0"],["11-0602","#F2F0EB"],["11-0601
       },
       created: function(){ var self=this;this.restoreColorState();this.restoreFrequentColors();this.restorePromptResults();this.$nextTick(function(){self.promptOutdatedToastReady=true;}); },
       mounted: function(){ document.addEventListener('paste',this.handlePlanningImagePaste); },
-      beforeDestroy: function(){ document.removeEventListener('paste',this.handlePlanningImagePaste);if(this._refineResizeObserver)this._refineResizeObserver.disconnect();this.refine.references.forEach(function(file){URL.revokeObjectURL(file.url);}); },
+      beforeDestroy: function(){ document.removeEventListener('paste',this.handlePlanningImagePaste); },
       methods: {
         validColorHex: function(value){ return /^#[0-9a-fA-F]{6}$/.test((value||'').trim()); },
         hsvToHex: function(h,s,v){ s/=100;v/=100;var c=v*s,x=c*(1-Math.abs((h/60)%2-1)),m=v-c,r=0,g=0,b=0;if(h<60){r=c;g=x;}else if(h<120){r=x;g=c;}else if(h<180){g=c;b=x;}else if(h<240){g=x;b=c;}else if(h<300){r=x;b=c;}else{r=c;b=x;}return '#'+[r,g,b].map(function(n){return Math.round((n+m)*255).toString(16).padStart(2,'0');}).join('').toUpperCase(); },
@@ -1348,104 +1292,35 @@ window.PANTONE_FHI_COLORS=[["11-0103","#F3ECE0"],["11-0602","#F2F0EB"],["11-0601
           if(this.isViewer){this.$message.error('暂无权限执行此操作，请联系管理员');return;}
           this.refine.references.forEach(function(file){URL.revokeObjectURL(file.url);});
           this.selectedCreative=item;
-          if(!item.refineVersions)this.$set(item,'refineVersions',[{id:item.id+'-original',code:item.code,image:item.image,filter:'',prompt:'',parentId:null,depth:1}]);
-          item.refineVersions.forEach(function(version,index){if(index===0){if(version.depth==null)this.$set(version,'depth',1);return;}if(version.parentId===undefined)this.$set(version,'parentId',item.refineVersions[index-1].id);if(version.depth==null){var parent=item.refineVersions.find(function(row){return row.id===version.parentId;});this.$set(version,'depth',(parent&&parent.depth||1)+1);}}.bind(this));
-          if(!item.mainRefineVersionId)this.$set(item,'mainRefineVersionId',item.refineVersions[item.refineVersions.length-1].id);
+          if(!item.refineVersions)this.$set(item,'refineVersions',[{id:item.id+'-original',code:item.code,image:item.image,filter:'',prompt:''}]);
           this.refine.versions=item.refineVersions;
-          this.refine.mainVersionId=item.mainRefineVersionId;
-          this.refine.activeVersionIndex=-1;
-          this.refine.draftsByVersion={};this.refine.references=[];this.refine.mode='brush';this.refine.brushTool='paint';this.refine.zoom=100;this.refine.draftStrokes=[];this.refine.activeStroke=null;this.refine.drawing=false;this.refine.draftRect=null;this.refine.dragStart=null;this.refine.boxNaming=false;this.refine.brushNaming=false;
+          this.refine.activeVersionIndex=item.refineVersions.length-1;
+          this.refine.references=[];this.refine.draftRect=null;this.refine.dragStart=null;
           this.refine.customCuff='';this.refine.customPattern='';this.refine.message='';this.refine.messageType='info';
-          this.selectRefineVersion(item.refineVersions.length-1);
+          this.selectRefineVersion(this.refine.activeVersionIndex);
           this.refineDrawerVisible=true;
-          var self=this;this.$nextTick(function(){self.syncRefineStage();if(window.ResizeObserver&&self.$refs.refineCanvas){if(self._refineResizeObserver)self._refineResizeObserver.disconnect();self._refineResizeObserver=new ResizeObserver(function(){self.syncRefineStage();});self._refineResizeObserver.observe(self.$refs.refineCanvas);}});
         },
         annotationStyle: function(note){return {left:note.x+'%',top:note.y+'%',width:note.w+'%',height:note.h+'%'};},
-        brushMarkerStyle: function(note){var stroke=(note.paths||[]).find(function(path){return path.mode!=='erase'&&path.points&&path.points.length;}),point=stroke&&stroke.points[0]||{x:50,y:50};return {left:Math.max(3,Math.min(97,point.x))+'%',top:Math.max(3,Math.min(97,point.y))+'%'};},
-        refineDepthLabel: function(depth){return ['一级','二级','三级','四级'][depth-1]||'第 '+depth+' 级';},
-        refineNextCode: function(parent){var count=this.refine.versions.filter(function(version){return version.parentId===parent.id;}).length+1;return parent.code+'-'+count;},
-        refineDemoColor: function(text,index){if(/粉|玫瑰|樱花/.test(text))return '#F1B9C9';if(/蓝|天空|海洋/.test(text))return '#A8CDEA';if(/绿|薄荷/.test(text))return '#A9DCC1';if(/黄|奶油/.test(text))return '#F5DE9D';if(/紫|薰衣草/.test(text))return '#C8B9E3';if(/红|橘/.test(text))return '#EDAA9D';return ['#C7B8E5','#B5D9CF','#E8C5A4','#ACCBE4'][index%4];},
-        refineDemoImage: function(parent,annotations,prompt,stageWidth){
-          var source=parent.image||'',prefix='data:image/svg+xml;charset=UTF-8,';
-          if(source.indexOf(prefix)!==0)return source;
-          var svg=decodeURIComponent(source.slice(prefix.length)),clip='M75 20 H220 V235 C220 292 181 328 126 328 H70 C34 328 18 305 36 276 L75 215 Z';
-          if(svg.indexOf('id="refineProductClip"')===-1)svg=svg.replace('<g transform="translate(205 70)">','<defs><clipPath id="refineProductClip"><path d="'+clip+'"/></clipPath></defs><g transform="translate(205 70)">');
-          var marks='',scale=720/Math.max(1,stageWidth||720),self=this;
-          (annotations.length?annotations:[{type:'box',x:0,y:0,w:100,h:100,text:prompt}]).forEach(function(note,index){
-            var color=self.refineDemoColor((note.text||'')+' '+prompt,index);
-            if(note.type==='box'){
-              marks+='<rect x="'+(note.x*7.2-205).toFixed(1)+'" y="'+(note.y*5.4-70).toFixed(1)+'" width="'+(note.w*7.2).toFixed(1)+'" height="'+(note.h*5.4).toFixed(1)+'" fill="'+color+'" opacity=".82" clip-path="url(#refineProductClip)"/>';
-            }else{
-              var maskId='refineStrokeMask'+self.refine.versions.length+'_'+index,paths='<rect x="-205" y="-70" width="720" height="540" fill="black"/>';
-              (note.paths||[]).forEach(function(stroke){var points=stroke.points||[],shade=stroke.mode==='erase'?'black':'white',width=((stroke.size||26)*scale).toFixed(1);if(!points.length)return;var coords=points.map(function(point){return [(point.x*7.2-205).toFixed(1),(point.y*5.4-70).toFixed(1)];});if(coords.length===1)paths+='<circle cx="'+coords[0][0]+'" cy="'+coords[0][1]+'" r="'+(width/2)+'" fill="'+shade+'"/>';else paths+='<path d="M'+coords.map(function(pair){return pair.join(' ');}).join(' L')+'" fill="none" stroke="'+shade+'" stroke-width="'+width+'" stroke-linecap="round" stroke-linejoin="round"/>';});
-              marks+='<defs><mask id="'+maskId+'" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="-205" y="-70" width="720" height="540">'+paths+'</mask></defs><rect x="-205" y="-70" width="720" height="540" fill="'+color+'" opacity=".82" clip-path="url(#refineProductClip)" mask="url(#'+maskId+')"/>';
-            }
-          });
-          svg=svg.replace('</g><text',marks+'</g><text');return prefix+encodeURIComponent(svg);
-        },
-        selectRefineVersion: function(index){
-          var version=this.refine.versions[index];if(!version||index===this.refine.activeVersionIndex)return;
-          var previous=this.refine.versions[this.refine.activeVersionIndex];
-          if(previous)this.$set(this.refine.draftsByVersion,previous.id,{mode:this.refine.mode,modeDrafts:JSON.parse(JSON.stringify(this.refine.modeDrafts)),draftStrokes:JSON.parse(JSON.stringify(this.refine.draftStrokes))});
-          var saved=this.refine.draftsByVersion[version.id],notes=JSON.parse(JSON.stringify(version.annotations||[]));
-          this.refine.activeVersionIndex=index;
-          this.refine.modeDrafts=saved?JSON.parse(JSON.stringify(saved.modeDrafts)):{brush:{annotations:notes.filter(function(note){return note.type==='brush';}),prompt:''},box:{annotations:notes.filter(function(note){return note.type==='box';}),prompt:''}};
-          if(!saved){var sourceMode=version.mode==='box'?'box':'brush';this.refine.modeDrafts[sourceMode].prompt=version.prompt||'';}
-          this.refine.mode=saved?saved.mode:(version.mode==='box'?'box':'brush');
-          this.refine.draftStrokes=saved?JSON.parse(JSON.stringify(saved.draftStrokes)):[];
-          this.refine.activeStroke=null;this.refine.drawing=false;this.refine.draftRect=null;this.refine.dragStart=null;
-          this.refine.cuff=version.cuff||'无';this.refine.pattern=version.pattern||'无图案';this.$nextTick(this.drawRefineMask);
-        },
-        syncRefineStage: function(){var host=this.$refs.refineCanvas,img=this.$refs.refineImage;if(!host||!img||!host.clientWidth||!host.clientHeight)return;var ratio=img.naturalWidth&&img.naturalHeight?img.naturalWidth/img.naturalHeight:4/3;var width=Math.min(host.clientWidth,host.clientHeight*ratio);this.refine.stageWidth=Math.max(1,Math.round(width));this.refine.stageHeight=Math.max(1,Math.round(width/ratio));this.$nextTick(this.drawRefineMask);},
-        drawRefineMask: function(){var canvas=this.$refs.refineMaskCanvas;if(!canvas)return;var w=this.refine.stageWidth,h=this.refine.stageHeight,dpr=window.devicePixelRatio||1;canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);var ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);var strokes=[];this.refine.modeDrafts.brush.annotations.forEach(function(note){strokes=strokes.concat(note.paths||[]);});strokes=strokes.concat(this.refine.draftStrokes);if(this.refine.activeStroke)strokes.push(this.refine.activeStroke);strokes.forEach(function(stroke){var pts=stroke.points||[];if(!pts.length)return;ctx.globalCompositeOperation=stroke.mode==='erase'?'destination-out':'source-over';ctx.strokeStyle=stroke.mode==='erase'?'#000':'rgba(75,122,232,.54)';ctx.fillStyle=ctx.strokeStyle;ctx.lineWidth=stroke.size||26;ctx.lineCap='round';ctx.lineJoin='round';if(pts.length===1){ctx.beginPath();ctx.arc(pts[0].x*w/100,pts[0].y*h/100,ctx.lineWidth/2,0,Math.PI*2);ctx.fill();return;}ctx.beginPath();pts.forEach(function(point,index){var x=point.x*w/100,y=point.y*h/100;if(index)ctx.lineTo(x,y);else ctx.moveTo(x,y);});ctx.stroke();});ctx.globalCompositeOperation='source-over';},
-        setRefineMode: function(mode){if(this.refine.loading||mode===this.refine.mode)return;this.finishRefineAnnotation();this.refine.mode=mode;},
-        changeRefineZoom: function(delta){this.refine.zoom=Math.max(50,Math.min(200,this.refine.zoom+delta));},
+        selectRefineVersion: function(index){var version=this.refine.versions[index];if(!version)return;this.refine.activeVersionIndex=index;this.refine.prompt=version.prompt||'';this.refine.annotations=(version.annotations||[]).map(function(note){return Object.assign({},note);});this.refine.cuff=version.cuff||'无';this.refine.pattern=version.pattern||'无图案';},
         refinePoint: function(event){var box=event.currentTarget.getBoundingClientRect();return {x:Math.max(0,Math.min(100,(event.clientX-box.left)/box.width*100)),y:Math.max(0,Math.min(100,(event.clientY-box.top)/box.height*100))};},
-        startRefineAnnotation: function(event){if(event.button!==0||this.refine.drawing||this.refine.boxNaming||this.refine.brushNaming)return;event.preventDefault();var point=this.refinePoint(event);if(this.refine.mode==='brush'){this.refine.activeStroke={size:this.refine.brushSize,mode:this.refine.brushTool,points:[point]};this.refine.drawing=true;this.drawRefineMask();}else{this.refine.dragStart=point;this.refine.draftRect=null;}if(event.currentTarget.setPointerCapture)event.currentTarget.setPointerCapture(event.pointerId);},
-        moveRefineAnnotation: function(event){if(this.refine.mode==='brush'){if(!this.refine.drawing||!this.refine.activeStroke)return;var point=this.refinePoint(event),points=this.refine.activeStroke.points,last=points[points.length-1],dx=(point.x-last.x)*this.refine.stageWidth/100,dy=(point.y-last.y)*this.refine.stageHeight/100;if(Math.hypot(dx,dy)>=1.5){points.push(point);this.drawRefineMask();}return;}if(!this.refine.dragStart)return;var start=this.refine.dragStart,end=this.refinePoint(event);this.refine.draftRect={x:Math.min(start.x,end.x),y:Math.min(start.y,end.y),w:Math.abs(end.x-start.x),h:Math.abs(end.y-start.y)};},
-        finishRefineAnnotation: function(event){
-          if(this.refine.boxNaming)return;
-          if(this.refine.drawing&&this.refine.activeStroke){if(event&&event.clientX!=null)this.moveRefineAnnotation(event);this.refine.draftStrokes.push(this.refine.activeStroke);this.refine.activeStroke=null;this.refine.drawing=false;this.drawRefineMask();}
-          var note=this.refine.mode==='box'&&event&&event.type!=='pointercancel'?this.refine.draftRect:null;
-          this.refine.dragStart=null;
-          if(note&&note.w>2&&note.h>2)this.refine.boxNaming=true;else this.refine.draftRect=null;
-          if(event&&event.currentTarget.hasPointerCapture&&event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.releasePointerCapture(event.pointerId);
-          if(this.refine.boxNaming)this.promptRefineBoxName(note);
-        },
-        promptRefineBoxName: function(rect){
-          var self=this;
-          this.$prompt('例如：腰头、前片、Logo、印花区域','输入标注名称',{customClass:'refine-name-dialog',inputValue:'新标注',confirmButtonText:'确定',cancelButtonText:'取消',inputValidator:function(value){var name=(value||'').trim();return name&&name.length<=24||'请输入 1–24 个字的标注名称';}}).then(function(result){self.refine.modeDrafts.box.annotations.push(Object.assign({id:Date.now()+'-'+Math.random().toString(36).slice(2),type:'box',name:result.value.trim(),text:''},rect));self.refine.draftRect=null;self.refine.boxNaming=false;}).catch(function(){self.refine.draftRect=null;self.refine.boxNaming=false;});
-        },
-        renameRefineBox: function(note){var self=this;this.$prompt('例如：腰头、前片、Logo、印花区域','修改标注名称',{customClass:'refine-name-dialog',inputValue:note.name||'新标注',confirmButtonText:'确定',cancelButtonText:'取消',inputValidator:function(value){var name=(value||'').trim();return name&&name.length<=24||'请输入 1–24 个字的标注名称';}}).then(function(result){self.$set(note,'name',result.value.trim());}).catch(function(){});},
-        undoRefineStroke: function(){this.refine.draftStrokes.pop();this.drawRefineMask();},
-        clearRefineStrokes: function(){this.refine.draftStrokes=[];this.refine.activeStroke=null;this.refine.drawing=false;this.drawRefineMask();},
-        undoRefineBox: function(){this.refine.modeDrafts.box.annotations.pop();},
-        clearRefineBoxes: function(){this.refine.modeDrafts.box.annotations=[];},
-        finishBrushAnnotation: function(){
-          this.finishRefineAnnotation();if(!this.refine.draftStrokes.length||this.refine.brushNaming)return;
-          var self=this,paths=JSON.parse(JSON.stringify(this.refine.draftStrokes)),hasPaint=paths.some(function(path){return path.mode!=='erase';}),brushNotes=this.refine.modeDrafts.brush.annotations;
-          if(!hasPaint){if(brushNotes.length){var last=brushNotes[brushNotes.length-1];last.paths=(last.paths||[]).concat(paths);this.$message.success('已擦除涂抹区域');}this.refine.draftStrokes=[];this.drawRefineMask();return;}
-          this.refine.brushNaming=true;
-          this.$prompt('例如：腰头、前片、Logo、印花区域','输入标注名称',{customClass:'refine-name-dialog',inputValue:'涂抹区域 '+(brushNotes.length+1),confirmButtonText:'确定',cancelButtonText:'取消',inputValidator:function(value){var name=(value||'').trim();return name&&name.length<=24||'请输入 1–24 个字的标注名称';}}).then(function(result){brushNotes.push({id:Date.now()+'-'+Math.random().toString(36).slice(2),type:'brush',name:result.value.trim(),text:'',paths:paths});self.refine.draftStrokes=[];self.refine.brushNaming=false;self.drawRefineMask();self.$message.info('已保存涂抹区域，请在右侧填写修改要求');}).catch(function(){self.refine.brushNaming=false;});
-        },
-        normalizeRefineBrushName: function(note,index){var value=(note.name||'').trim();this.$set(note,'name',value||'涂抹区域 '+(index+1));},
-        removeRefineAnnotation: function(index){this.refineActiveAnnotations.splice(index,1);if(this.refine.mode==='brush'){this.refineActiveAnnotations.forEach(function(note,n){if(/^涂抹区域 \d+$/.test(note.name||''))note.name='涂抹区域 '+(n+1);});this.drawRefineMask();}},
+        startRefineAnnotation: function(event){if(event.button!==0)return;this.refine.dragStart=this.refinePoint(event);this.refine.draftRect=null;},
+        moveRefineAnnotation: function(event){if(!this.refine.dragStart)return;var start=this.refine.dragStart,end=this.refinePoint(event);this.refine.draftRect={x:Math.min(start.x,end.x),y:Math.min(start.y,end.y),w:Math.abs(end.x-start.x),h:Math.abs(end.y-start.y)};},
+        finishRefineAnnotation: function(){var note=this.refine.draftRect;if(note&&note.w>2&&note.h>2){this.refine.annotations.push(Object.assign({id:Date.now()+'-'+Math.random().toString(36).slice(2),text:''},note));}this.refine.dragStart=null;this.refine.draftRect=null;},
+        removeRefineAnnotation: function(index){this.refine.annotations.splice(index,1);},
         addRefineReferences: function(event){var self=this;Array.from(event.target.files||[]).slice(0,Math.max(0,4-this.refine.references.length)).forEach(function(file){if(file.type.indexOf('image/')===0)self.refine.references.push({id:Date.now()+'-'+Math.random(),name:file.name,url:URL.createObjectURL(file)});});event.target.value='';},
         removeRefineReference: function(index){var file=this.refine.references.splice(index,1)[0];if(file)URL.revokeObjectURL(file.url);},
         editRefineTag: function(field){var self=this;this.$prompt('输入自定义标签','高级参数',{inputPattern:/\S+/,inputErrorMessage:'请输入标签名称',confirmButtonText:'添加',cancelButtonText:'取消'}).then(function(result){var value=result.value.trim();if(field==='cuff'){self.refine.customCuff=value;self.refine.cuff=value;}else{self.refine.customPattern=value;self.refine.pattern=value;}}).catch(function(){});},
         toggleFinal: function(item){ item.final=!item.final;this.$message.success(item.final?'已标记定稿候选':'已取消定稿候选'); },
         generateRefinedVersion: function(){
           var self=this;if(!this.canGenerateRefine)return;
-          var parent=this.refineCurrentVersion,stageWidth=this.refine.stageWidth;
-          var mode=this.refine.mode,prompt=this.refineActivePrompt.trim(),annotations=JSON.parse(JSON.stringify(this.refineActiveAnnotations));
           this.refine.loading=true;this.refine.message='正在生成精修版本…';this.refine.messageType='info';
           setTimeout(function(){
             self.refine.loading=false;
             if(self.refine.scenario==='processing'){self.refine.message='任务仍在处理中，当前修改内容和标注已保留。';self.refine.messageType='warning';return;}
             if(self.refine.scenario==='failed'){self.refine.message='生成失败，请调整描述后重试；原图和现有版本已保留。';self.refine.messageType='error';return;}
-            var index=self.refine.versions.length+1,image=self.refineDemoImage(parent,annotations,prompt,stageWidth);
-            var version={id:self.selectedCreative.id+'-v'+index,code:self.refineNextCode(parent),image:image,filter:image===parent.image?(parent.filter||'none'):'',parentId:parent.id,depth:(parent.depth||1)+1,mode:mode,prompt:'',annotations:[],sourceMode:mode,sourcePrompt:prompt,sourceAnnotations:annotations,references:self.refine.references.map(function(file){return file.name;}),cuff:self.refine.cuff,pattern:self.refine.pattern};
-            self.refine.versions.push(version);self.refine.mainVersionId=version.id;self.$set(self.selectedCreative,'mainRefineVersionId',version.id);self.selectRefineVersion(self.refine.versions.length-1);
+            var index=self.refine.versions.length+1;
+            var version={id:self.selectedCreative.id+'-v'+index,code:self.selectedCreative.code+'-V'+index,image:self.refine.versions[0].image,filter:'hue-rotate('+((index-1)*10)+'deg) saturate('+(1+(index-1)*.07)+')',prompt:self.refine.prompt.trim(),annotations:self.refine.annotations.map(function(note){return Object.assign({},note);}),references:self.refine.references.map(function(file){return file.name;}),cuff:self.refine.cuff,pattern:self.refine.pattern};
+            self.refine.versions.push(version);self.refine.activeVersionIndex=self.refine.versions.length-1;
             self.refine.message='已创建 '+version.code+'，可在版本历史中切换查看。';self.refine.messageType='success';self.$message.success('已生成新版本');
           },900);
         },
