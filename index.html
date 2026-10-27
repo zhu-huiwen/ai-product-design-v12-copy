@@ -174,12 +174,12 @@
     .color-role-flow__current-copy small { color:#697386; font-size:11px; }
     .color-role-flow__add.el-button { min-height:32px; padding:7px 12px; border-color:#d9e0e9; border-radius:16px; background:#f5f7fa; color:#526174; font-size:12px; font-weight:500; }
     .color-role-flow__add.el-button:hover,.color-role-flow__add.el-button:focus { border-color:#b8c4d3; background:#edf2f8; color:#34445a; }
-    .color-role-flow__palette { display:grid; grid-template-columns:repeat(var(--palette-columns,4),minmax(0,1fr)); gap:6px; margin-top:6px; }
-    .color-role-flow__palette .palette-preview__item { display:grid; grid-template-columns:52px minmax(0,1fr) auto; align-items:center; gap:6px; height:72px; min-width:0; box-sizing:border-box; padding:6px; }
-    .color-role-flow__palette .palette-preview__swatch { width:48px; height:48px; box-sizing:border-box; }
-    .color-role-flow__palette .palette-preview__item--main { border:2px solid #657a98; background:#f2f5fa; padding-left:8px; }
+    .color-role-flow__palette { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin-top:8px; }
+    .color-role-flow__palette .palette-preview__item { display:grid; grid-template-columns:40px minmax(0,1fr) auto; align-items:center; gap:8px; height:72px; min-width:0; box-sizing:border-box; padding:8px 9px; }
+    .color-role-flow__palette .palette-preview__swatch { width:34px; height:34px; box-sizing:border-box; }
+    .color-role-flow__palette .palette-preview__item--main { border:2px solid #657a98; background:#f2f5fa; padding-left:12px; }
     .color-role-flow__palette .palette-preview__item--main::before { width:4px; }
-    .color-role-flow__palette .palette-preview__item--main .palette-preview__swatch { width:52px; height:52px; }
+    .color-role-flow__palette .palette-preview__item--main .palette-preview__swatch { width:40px; height:40px; }
     .color-role-flow__palette .palette-preview__item--main .palette-preview__role { background:#34465f; color:#fff; padding:1px 6px; }
     .color-role-flow__palette .palette-preview__item--main .palette-preview__code { font-size:13px; }
     .color-role-flow__palette .palette-preview__info { min-width:0; gap:1px; padding-right:0; }
@@ -920,7 +920,7 @@
       <section class="color-step-card color-role-flow" aria-label="第二步：组合产品配色">
         <div class="color-step-card__heading"><span class="color-step-card__number">02</span><strong>组合产品配色</strong><small>先选主色，按需加入参考色；最多 8 色</small></div>
         <div class="color-role-flow__current"><span class="main-color-card__swatch" :style="{background:colorDraft.hex}"></span><span class="color-role-flow__current-copy"><strong>当前选中 {{ colorDraft.pantone || colorDraft.hex }}</strong><small v-if="colorDraft.pantone">{{ colorDraft.hex }}</small></span><el-button class="color-role-flow__add" icon="el-icon-plus" @click="addDraftColor">{{ colorDraftActionLabel }}</el-button></div>
-        <div class="color-role-flow__palette" :style="{'--palette-columns':Math.max(1,Math.min(colorSelections.length,4))}" aria-label="已选产品配色">
+        <div class="color-role-flow__palette" aria-label="已选产品配色">
           <div v-for="(item,index) in colorSelections" :key="item.hex" class="palette-preview__item" :class="{'palette-preview__item--main':index===0}" :style="{'--palette-main-color':item.hex}">
             <span class="palette-preview__swatch" :style="{background:item.hex}"></span>
             <div class="palette-preview__info"><span class="palette-preview__role">{{ index===0 ? '产品主色' : '参考色' }}</span><strong class="palette-preview__code">{{ item.pantone || item.hex }}</strong><small v-if="item.pantone" class="palette-preview__hex">{{ item.hex }}</small></div><button v-if="index>0" type="button" class="color-role-flow__promote" :aria-label="'将 '+(item.pantone || item.hex)+' 设为主色'" @click="setPrimaryColor(index)">设为主色</button>
